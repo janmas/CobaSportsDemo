@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app" ng-controller="sportListController">
+<head>
+    <title></title>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="views/sport/sportsController.js"></script>
+</head>
+<body>
+    <h1>Sports</h1>
+    <input type="text" ng-model="newSport"/>
+    <input type="button" ng-click="createSport()" value="Insert in DB"/>
+    
+    <ul>
+        <li ng-repeat="sport in sportList">{{sport.Caption}}</li>
+    </ul>
+</body>
+</html>
