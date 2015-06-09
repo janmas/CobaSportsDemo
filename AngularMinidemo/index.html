@@ -1,9 +1,16 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="app" ng-controller="sportListController">
 <head>
-    <title></title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Coba Sports Demo</title>
+    <script src="Scripts/jquery-1.9.1.js"></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="views/sport/sportsController.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <h1>Sports</h1>
@@ -11,7 +18,9 @@
     <input type="button" ng-click="createSport()" value="Insert in DB"/>
     
     <ul>
-        <li ng-repeat="sport in sportList">{{sport.Caption}}</li>
+        <li ng-repeat="sport in sportList">            
+            <input type="text" ng-blur="onBlur(sport)"  ng-model="sport.Caption" />
+        </li>
     </ul>
 </body>
 </html>

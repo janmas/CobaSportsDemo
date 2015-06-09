@@ -6,7 +6,7 @@ app.controller('sportListController', [
         $scope.newSport = 'Fotbal';
     $scope.sportList = [];
 
-    var success = function(sport) {
+    var success = function (sport) {        
         alert(sport.Id);
         loadSports();
     };
@@ -26,4 +26,19 @@ app.controller('sportListController', [
         $http.get('/odata/Sports').success(sportsLoaded);
     }
     loadSports();
+
+    var patchFailed = function (error) {
+        alert(error);
+    };
+
+    var patchOk = function () {
+        alert('Product successfully updated.')
+    };
+    
+    $scope.onBlur = function(sport) {
+        console.log(sport);        
+        $http({ method: 'PATCH', url: '/odata/Sports/(' + sport.Id + ')', data: angular.toJson({ Caption: sport.Caption }) }).error(patchFailed).success(patchOk);
+    }
+
+
 }]);
