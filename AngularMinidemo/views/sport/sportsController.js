@@ -26,18 +26,23 @@ app.controller('sportListController', [
         $http.get('/odata/Sports').success(sportsLoaded);
     }
     loadSports();
-
-    var patchFailed = function (error) {
-        alert(error);
-    };
-
+    
     var patchOk = function () {
         alert('Product successfully updated.')
     };
     
     $scope.onBlur = function(sport) {
         console.log(sport);        
-        $http({ method: 'PATCH', url: '/odata/Sports/(' + sport.Id + ')', data: angular.toJson({ Caption: sport.Caption }) }).error(patchFailed).success(patchOk);
+        $http({ method: 'PATCH', url: '/odata/Sports/(' + sport.Id + ')', data: angular.toJson({ Caption: sport.Caption }) }).error(error).success(patchOk);
+    }
+
+    var deleteOk = function () {
+        alert('Product successfully deleted.')
+        loadSports();
+    };
+
+    $scope.deleteSport = function(sport) {
+        $http({ method: 'DELETE', url: '/odata/Sports/(' + sport.Id + ')'}).error(error).success(deleteOk);
     }
 
 
