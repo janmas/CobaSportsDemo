@@ -45,5 +45,10 @@ app.controller('sportListController', [
         $http({ method: 'DELETE', url: '/odata/Sports/(' + sport.Id + ')'}).error(error).success(deleteOk);
     }
 
+    $scope.sportQuery = '';
+    $scope.getSports = function () {
+        var queryPart = $scope.sportQuery ? '?' + $scope.sportQuery : ''
+        $http.get('/odata/Sports/' + queryPart).success(sportsLoaded).error(error);
+    }
 
 }]);
