@@ -29,6 +29,12 @@ namespace AngularMinidemo.Controllers
     {
         private SportContext db = new SportContext();
 
+        public SportsController()
+            : base()
+        {
+            db.Database.Log = x => { System.Diagnostics.Trace.Write(x); };
+        }
+
         // GET: odata/Sports
         [EnableQuery]
         public IQueryable<Sport> GetSports()
