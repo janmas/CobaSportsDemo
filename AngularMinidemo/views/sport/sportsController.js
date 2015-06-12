@@ -4,7 +4,7 @@ app.controller('sportListController', [
     '$scope', '$http', function($scope, $http) {
 
         $scope.newSport = 'Fotbal';
-    $scope.sportList = [];
+        $scope.sportList = [];        
 
     var success = function (sport) {        
         alert(sport.Id);
@@ -30,10 +30,18 @@ app.controller('sportListController', [
     var patchOk = function () {
         alert('Product successfully updated.')
     };
+
+    var changeActionOk = function (data) {
+        alert('Response: ' + data.value);
+    }
+
     
     $scope.onBlur = function(sport) {
         console.log(sport);        
-        $http({ method: 'PATCH', url: '/odata/Sports/(' + sport.Id + ')', data: angular.toJson({ Caption: sport.Caption }) }).error(error).success(patchOk);
+        // $http({ method: 'PATCH', url: '/odata/Sports/(' + sport.Id + ')', data: angular.toJson({ Caption: sport.Caption }) }).error(error).success(patchOk);
+
+        // use Sport.ChangeCaption action...
+        $http({ method: 'POST', url: '/odata/Sports/(' + sport.Id + ')/ChangeCaption', data: angular.toJson({ Caption: sport.Caption }) }).error(error).success(changeActionOk);
     }
 
     var deleteOk = function () {

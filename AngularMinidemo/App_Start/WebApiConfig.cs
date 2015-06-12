@@ -22,6 +22,11 @@ namespace AngularMinidemo
 
             var builder = new ODataConventionModelBuilder();
             builder.EntitySet<Sport>("Sports");
+
+            ActionConfiguration changeCaption = builder.Entity<Sport>().Action("ChangeCaption");
+            changeCaption.Parameter<string>("Caption");
+            changeCaption.Returns<string>();
+
             config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
     
         }

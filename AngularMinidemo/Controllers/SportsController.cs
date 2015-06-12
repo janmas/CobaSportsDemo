@@ -166,5 +166,28 @@ namespace AngularMinidemo.Controllers
         {
             return db.Sports.Count(e => e.Id == key) > 0;
         }
+
+        [HttpPost]
+        public async Task<IHttpActionResult> ChangeCaption([FromODataUri] int key, ODataActionParameters parameters)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            string caption = (string)parameters["Caption"];
+
+            Sport sport = await db.Sports.FindAsync(key);
+            if (sport == null)
+            {
+                return NotFound();
+            }
+
+            var currentCaption = sport.Caption;
+            sport.Caption = caption;
+            db.SaveChanges();            
+
+            return Ok(currentCaption + ":" + caption);
+        }
     }
 }
