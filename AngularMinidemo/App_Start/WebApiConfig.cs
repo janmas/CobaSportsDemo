@@ -23,9 +23,25 @@ namespace AngularMinidemo
             var builder = new ODataConventionModelBuilder();
             builder.EntitySet<Sport>("Sports");
 
-            ActionConfiguration changeCaption = builder.Entity<Sport>().Action("ChangeCaption");
+            ActionConfiguration changeCaption = builder.Entity<Sport>().TransientAction("ChangeCaption");
             changeCaption.Parameter<string>("Caption");
             changeCaption.Returns<string>();
+
+            changeCaption.HasActionLink(ctx => {
+                var sport = ctx.EntityInstance as Sport;
+                if (sport.Id % 2 == 0)
+                {
+                    return new System.Uri(ctx.Url.CreateODataLink(
+                        new System.Web.Http.OData.Routing.EntitySetPathSegment(ctx.EntitySet),
+                        new System.Web.Http.OData.Routing.KeyValuePathSegment(sport.Id.ToString()),
+                        new System.Web.Http.OData.Routing.ActionPathSegment(changeCaption.Name)));
+                }
+                else
+                {
+                    return null;
+                }
+            }, followsConventions: true);
+
 
             config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
     
