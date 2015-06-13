@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>odata-15</Title>
+			<Shortcut>od15</Shortcut>
+			<Description>Code snippet for odata-15 block</Description>
+			<Author>JM</Author>			
+		</Header>
+		<Snippet>
+			<Code Language="CSharp"><![CDATA[[HttpPost]
+        public async Task<IHttpActionResult> ChangeCaption([FromODataUri] int key, ODataActionParameters parameters)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            string caption = (string)parameters["Caption"];
+
+            Sport sport = await db.Sports.FindAsync(key);
+            if (sport == null)
+            {
+                return NotFound();
+            }
+
+            var currentCaption = sport.Caption;
+            sport.Caption = caption;
+            db.SaveChanges();            
+
+            return Ok(currentCaption + ":" + caption);
+        }]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
+
+
+
+

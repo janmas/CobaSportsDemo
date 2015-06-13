@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>odata-5</Title>
+			<Shortcut>od5</Shortcut>
+			<Description>Code snippet for odata-5 block</Description>
+			<Author>JM</Author>			
+		</Header>
+		<Snippet>
+			<Code Language="Javascript"><![CDATA[var patchOk = function () {
+        alert('Product successfully updated.')
+    };
+    
+    $scope.onBlur = function(sport) {
+        console.log(sport);        
+        $http({ method: 'PATCH', url: '/odata/Sports/(' + sport.Id + ')', data: angular.toJson({ Caption: sport.Caption }) }).error(error).success(patchOk);
+    }
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

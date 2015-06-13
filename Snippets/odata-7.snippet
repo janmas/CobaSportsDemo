@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>odata-7</Title>
+			<Shortcut>od7</Shortcut>
+			<Description>Code snippet for odata-5 block</Description>
+			<Author>JM</Author>			
+		</Header>
+		<Snippet>
+			<Code Language="Javascript"><![CDATA[var deleteOk = function () {
+        alert('Product successfully deleted.')
+        loadSports();
+    };
+
+    $scope.deleteSport = function(sport) {
+        $http({ method: 'DELETE', url: '/odata/Sports/(' + sport.Id + ')'}).error(error).success(deleteOk);
+    }]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
+
+
+

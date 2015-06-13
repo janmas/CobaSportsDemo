@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>odata-18</Title>
+			<Shortcut>od18</Shortcut>
+			<Description>Code snippet for odata-18 block</Description>
+			<Author>JM</Author>			
+		</Header>
+		<Snippet>
+			<Code Language="CSharp"><![CDATA[ActionConfiguration changeCaption = builder.Entity<Sport>().TransientAction("ChangeCaption");
+            changeCaption.Parameter<string>("Caption");
+            changeCaption.Returns<string>();
+
+changeCaption.HasActionLink(ctx => {
+                var sport = ctx.EntityInstance as Sport;
+                if (sport.Id % 2 == 0)
+                {
+                    return new System.Uri(ctx.Url.CreateODataLink(
+                        new System.Web.Http.OData.Routing.EntitySetPathSegment(ctx.EntitySet),
+                        new System.Web.Http.OData.Routing.KeyValuePathSegment(sport.Id.ToString()),
+                        new System.Web.Http.OData.Routing.ActionPathSegment(changeCaption.Name)));
+                }
+                else
+                {
+                    return null;
+                }
+            }, followsConventions: true);
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
+
