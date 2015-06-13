@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9A746609-FC43-42B8-B532-524B47171607}"
 	ProjectSection(SolutionItems) = preProject
 		demo.docx = demo.docx
+		OData.pptx = OData.pptx
 	EndProjectSection
 EndProject
 Global
