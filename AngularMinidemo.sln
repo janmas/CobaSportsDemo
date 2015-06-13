@@ -11,6 +11,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		OData.pptx = OData.pptx
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Snippets", "Snippets", "{424AE5D5-2AAA-4BD8-B076-9477C4012C28}"
+	ProjectSection(SolutionItems) = preProject
+		Snippets\odata-12.snippet = Snippets\odata-12.snippet
+		Snippets\odata-13.snippet = Snippets\odata-13.snippet
+		Snippets\odata-14.snippet = Snippets\odata-14.snippet
+		Snippets\odata-15.snippet = Snippets\odata-15.snippet
+		Snippets\odata-16.snippet = Snippets\odata-16.snippet
+		Snippets\odata-18.snippet = Snippets\odata-18.snippet
+		Snippets\odata-3.snippet = Snippets\odata-3.snippet
+		Snippets\odata-4.snippet = Snippets\odata-4.snippet
+		Snippets\odata-5.snippet = Snippets\odata-5.snippet
+		Snippets\odata-6.snippet = Snippets\odata-6.snippet
+		Snippets\odata-7.snippet = Snippets\odata-7.snippet
+		Snippets\odata-8.snippet = Snippets\odata-8.snippet
+		Snippets\odata-9.snippet = Snippets\odata-9.snippet
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +41,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{424AE5D5-2AAA-4BD8-B076-9477C4012C28} = {9A746609-FC43-42B8-B532-524B47171607}
 	EndGlobalSection
 EndGlobal
