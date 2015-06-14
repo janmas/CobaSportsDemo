@@ -8,7 +8,7 @@
 			<Author>JM</Author>			
 		</Header>
 		<Snippet>
-			<Code Language="Javascript"><![CDATA[$scope.sportQuery = '';
+			<Code Language="Javascript" Delimiter="~"><![CDATA[$scope.sportQuery = '';
     $scope.getSports = function () {
         var queryPart = $scope.sportQuery ? '?' + $scope.sportQuery : ''
         $http.get('/odata/Sports/' + queryPart).success(sportsLoaded).error(error);
